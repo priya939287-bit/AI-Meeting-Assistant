@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from transcribe import speech_to_text
 
 app = Flask(__name__)
 ALLOWED_EXTENSIONS = {"mp3", "wav", "m4a"}
@@ -19,9 +20,14 @@ def upload():
 
     if allowed_file(audio.filename):
 
-        audio.save("uploads/" + audio.filename)
+        filepath = "uploads/" + audio.filename
+        audio.save(filepath)
 
-        return "Audio uploaded successfully!"
+        transcript = speech_to_text(filepath)
+
+        return transcript
+
+
 
     else:
 
