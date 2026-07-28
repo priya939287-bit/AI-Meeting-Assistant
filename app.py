@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from transcribe import speech_to_text
+from summary import summarize_text
 
 app = Flask(__name__)
 ALLOWED_EXTENSIONS = {"mp3", "wav", "m4a"}
@@ -25,8 +26,17 @@ def upload():
 
         transcript = speech_to_text(filepath)
 
-        return transcript
+        summary = summarize_text(transcript)
+        return f"""
 
+        Transcript:
+
+        {transcript}
+
+        Summary:
+        
+        {summary}
+        """
 
 
     else:
