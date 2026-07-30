@@ -35,21 +35,12 @@ def upload():
 
         action_items = extract_action_items(transcript)
 
-        actions = "\n".join(action_items)
-
-        return f"""
-Transcript:
-
-{transcript}
-
-Summary:
-
-{summary}
-
-Action Items:
-
-{actions}
-"""
+        return render_template(
+            "index.html",
+            transcript=transcript,
+            summary=summary,
+            actions=action_items
+        )
 
     else:
         return "Only audio files (.mp3, .wav, .m4a) are allowed."
@@ -57,6 +48,3 @@ Action Items:
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-        
-
