@@ -8,8 +8,15 @@
 
     <title>AI Meeting Assistant</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+        href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
@@ -22,78 +29,91 @@
             <h1>🎤 AI Meeting Assistant</h1>
 
             <p>
-                Upload your meeting audio and instantly get
-                Transcript, Summary and Action Items.
+                Convert your meeting recordings into
+                <strong>Transcript</strong>,
+                <strong>Summary</strong> and
+                <strong>Action Items</strong> using AI.
             </p>
 
         </div>
 
         <div class="upload-card">
 
+            <h2>📂 Upload Meeting Audio</h2>
+
+            <p class="upload-text">
+                Supported formats: MP3, WAV, M4A
+            </p>
+
             <form action="/upload"
                   method="POST"
                   enctype="multipart/form-data">
 
-                <input type="file"
-                       name="audio"
-                       required>
+                <div class="file-upload">
 
-                <br><br>
+                    <input
+                        type="file"
+                        name="audio"
+                        accept=".mp3,.wav,.m4a"
+                        required>
+
+                </div>
+
+                <br>
 
                 <button type="submit">
 
-                    🚀 Upload & Analyze
+                    🚀 Analyze Meeting
 
                 </button>
 
             </form>
-            {% if transcript %}
-
-<div class="result-card">
-
-    <h2>🎤 Transcript</h2>
-
-    <p>{{ transcript }}</p>
-
-</div>
-
-{% endif %}
-
-
-{% if summary %}
-
-<div class="result-card">
-
-    <h2>📝 Summary</h2>
-
-    <p>{{ summary }}</p>
-
-</div>
-
-{% endif %}
-
-
-{% if actions %}
-
-<div class="result-card">
-
-    <h2>✅ Action Items</h2>
-
-    <ul>
-
-        {% for item in actions %}
-
-        <li>{{ item }}</li>
-
-        {% endfor %}
-
-    </ul>
-
-</div>
-
-{% endif %}
 
         </div>
+
+        {% if transcript %}
+
+        <div class="result-card">
+
+            <h2>🎤 Transcript</h2>
+
+            <p>{{ transcript }}</p>
+
+        </div>
+
+        {% endif %}
+
+        {% if summary %}
+
+        <div class="result-card">
+
+            <h2>📝 AI Summary</h2>
+
+            <p>{{ summary }}</p>
+
+        </div>
+
+        {% endif %}
+
+        {% if actions %}
+
+        <div class="result-card">
+
+            <h2>✅ Action Items</h2>
+
+            <ul>
+
+                {% for item in actions %}
+
+                <li>{{ item }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        {% endif %}
 
     </div>
 

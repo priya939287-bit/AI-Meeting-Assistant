@@ -1,32 +1,38 @@
-body{
-
+*{
     margin:0;
     padding:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#4facfe,#00c6ff);
+    min-height:100vh;
+    padding:40px;
 
 }
 
 .container{
 
-    width:85%;
-    max-width:1000px;
-    margin:40px auto;
+    max-width:1100px;
+    margin:auto;
 
 }
 
 .header{
 
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:40px;
 
 }
 
 .header h1{
 
     color:white;
-    font-size:48px;
-    margin-bottom:10px;
+    font-size:50px;
+    margin-bottom:15px;
+    font-weight:700;
 
 }
 
@@ -34,35 +40,57 @@ body{
 
     color:white;
     font-size:20px;
+    line-height:1.6;
 
 }
 
 .upload-card{
 
-    background:rgba(255,255,255,0.95);
+    background:white;
+    border-radius:20px;
     padding:35px;
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
     text-align:center;
-    margin-bottom:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    margin-bottom:35px;
+
+}
+
+.upload-card h2{
+
+    color:#2c3e50;
+    margin-bottom:10px;
+
+}
+
+.upload-text{
+
+    color:#666;
+    margin-bottom:25px;
 
 }
 
 input[type="file"]{
 
+    width:100%;
+    padding:15px;
+    border:2px dashed #4facfe;
+    border-radius:12px;
+    background:#f8fbff;
+    cursor:pointer;
     font-size:16px;
-    padding:10px;
 
 }
 
 button{
 
+    margin-top:20px;
     background:#007BFF;
     color:white;
     border:none;
     padding:15px 40px;
     border-radius:30px;
     font-size:18px;
+    font-weight:600;
     cursor:pointer;
     transition:0.3s;
 
@@ -71,34 +99,35 @@ button{
 button:hover{
 
     background:#0056b3;
-    transform:scale(1.05);
+    transform:translateY(-3px);
 
 }
 
 .result-card{
 
     background:white;
-    margin-top:25px;
-    padding:25px;
     border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
 
 }
 
 .result-card h2{
 
     color:#007BFF;
-    margin-bottom:15px;
-    border-bottom:2px solid #007BFF;
-    padding-bottom:10px;
+    margin-bottom:18px;
+    border-left:6px solid #007BFF;
+    padding-left:12px;
 
 }
 
 .result-card p{
 
-    text-align:justify;
-    line-height:1.8;
+    color:#333;
     font-size:17px;
+    line-height:1.8;
+    text-align:justify;
 
 }
 
@@ -110,7 +139,27 @@ button:hover{
 
 .result-card li{
 
-    margin-bottom:10px;
+    margin-bottom:12px;
     font-size:17px;
+    color:#333;
+
+}
+.file-upload{
+
+    width:100%;
+    text-align:center;
+    margin:20px 0;
+
+}
+
+.file-upload input[type="file"]{
+
+    display:inline-block;
+    width:auto;
+    max-width:100%;
+    padding:15px;
+    border:2px dashed #4facfe;
+    border-radius:12px;
+    background:#f8fbff;
 
 }
