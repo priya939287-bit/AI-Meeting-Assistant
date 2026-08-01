@@ -69,15 +69,43 @@ body{
 
 }
 
-input[type="file"]{
+.file-upload{
 
     width:100%;
+    text-align:center;
+    margin:20px 0;
+
+}
+
+.file-upload input[type="file"]{
+
+    display:inline-block;
+    width:auto;
+    max-width:100%;
     padding:15px;
     border:2px dashed #4facfe;
     border-radius:12px;
     background:#f8fbff;
     cursor:pointer;
     font-size:16px;
+
+}
+
+input[type="text"]{
+
+    width:70%;
+    max-width:500px;
+    padding:12px;
+    font-size:16px;
+    border:2px solid #4facfe;
+    border-radius:10px;
+    outline:none;
+
+}
+
+input[type="text"]:focus{
+
+    border-color:#007BFF;
 
 }
 
@@ -122,6 +150,14 @@ button:hover{
 
 }
 
+.result-card h3{
+
+    color:#2c3e50;
+    margin-top:20px;
+    margin-bottom:10px;
+
+}
+
 .result-card p{
 
     color:#333;
@@ -144,22 +180,11 @@ button:hover{
     color:#333;
 
 }
-.file-upload{
 
-    width:100%;
-    text-align:center;
-    margin:20px 0;
+hr{
 
-}
+    margin:25px 0;
+    border:none;
+    border-top:2px solid #ddd;
 
-.file-upload input[type="file"]{
-
-    display:inline-block;
-    width:auto;
-    max-width:100%;
-    padding:15px;
-    border:2px dashed #4facfe;
-    border-radius:12px;
-    background:#f8fbff;
-
-}
+} 

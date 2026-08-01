@@ -1,11 +1,18 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from transcribe import speech_to_text
 from summary import summarize_text
 from action_items import extract_action_items
+from database import (
+    save_meeting,
+    get_all_meetings,
+    search_meetings,
+    delete_all_meetings
+)
 
 app = Flask(__name__)
 
 ALLOWED_EXTENSIONS = {"mp3", "wav", "m4a"}
+
 
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -14,6 +21,38 @@ def allowed_file(filename):
 @app.route("/")
 def home():
     return render_template("index.html")
+
+
+@app.route("/meetings")
+def meetings():
+
+    meetings = get_all_meetings()
+
+    return render_template(
+        "meetings.html",
+        meetings=meetings
+    )
+
+
+@app.route("/search", methods=["POST"])
+def search():
+
+    keyword = request.form["keyword"]
+
+    meetings = search_meetings(keyword)
+
+    return render_template(
+        "meetings.html",
+        meetings=meetings
+    )
+
+
+@app.route("/delete_all", methods=["POST"])
+def delete_all():
+
+    delete_all_meetings()
+
+    return redirect(url_for("meetings"))
 
 
 @app.route("/upload", methods=["POST"])
@@ -34,6 +73,14 @@ def upload():
         summary = summarize_text(transcript)
 
         action_items = extract_action_items(transcript)
+
+        actions = "\n".join(action_items)
+
+        save_meeting(
+            transcript,
+            summary,
+            actions
+        )
 
         return render_template(
             "index.html",

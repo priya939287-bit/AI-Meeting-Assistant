@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Previous Meetings</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <h1>📜 Previous Meetings</h1>
+
+            <p>All your previously saved meetings are shown below.</p>
+
+        </div>
+
+        <div style="text-align:center; margin-bottom:30px;">
+
+            <form action="/delete_all"
+                  method="POST"
+                  onsubmit="return confirm('Are you sure you want to delete all meetings?');">
+
+                <button type="submit">
+                    🗑️ Delete All Meetings
+                </button>
+
+            </form>
+
+        </div>
+
+        {% if meetings %}
+
+            {% for meeting in meetings %}
+
+            <div class="result-card">
+
+                <h2>Meeting {{ meeting[0] }}</h2>
+
+                <p><strong>Transcript:</strong></p>
+
+                <p>{{ meeting[1] }}</p>
+
+                <p><strong>Summary:</strong></p>
+
+                <p>{{ meeting[2] }}</p>
+
+                <p><strong>Action Items:</strong></p>
+
+                <p>{{ meeting[3] }}</p>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="result-card">
+
+                <h2>No Meetings Found</h2>
+
+            </div>
+
+        {% endif %}
+
+        <div style="text-align:center; margin-top:30px;">
+
+            <a href="/">
+
+                <button>
+                    🏠 Back to Home
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

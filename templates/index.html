@@ -62,12 +62,50 @@
                 <br>
 
                 <button type="submit">
-
                     🚀 Analyze Meeting
-
                 </button>
 
             </form>
+
+        </div>
+
+        <div class="upload-card">
+
+            <h2>🔍 Search Previous Meetings</h2>
+
+            <form action="/search" method="POST">
+
+                <input
+                    type="text"
+                    name="keyword"
+                    placeholder="Enter keyword..."
+                    required>
+
+                <br><br>
+
+                <button type="submit">
+                    🔍 Search
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="upload-card">
+
+            <h2>📜 View Previous Meetings</h2>
+
+            <p class="upload-text">
+                Click below to view all saved meetings.
+            </p>
+
+            <a href="/meetings">
+
+                <button>
+                    📜 View Previous Meetings
+                </button>
+
+            </a>
 
         </div>
 
