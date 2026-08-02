@@ -2,24 +2,22 @@
 
 ## 📌 Project Overview
 
-AI Meeting Assistant is a Flask-based web application that converts meeting audio into meaningful information using Artificial Intelligence.
-
-The application automatically:
-- Converts speech to text
-- Generates meeting summaries
-- Extracts action items
-
-This helps users quickly understand important meeting discussions without listening to the entire recording.
+AI Meeting Assistant is a web-based application developed using Python and Flask that converts meeting audio into text, generates an AI-powered summary, extracts action items, and stores meeting details in a SQLite database. It helps users quickly understand important meeting discussions without listening to the entire recording.
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-- 🎤 Upload Meeting Audio
-- 📝 Speech-to-Text using OpenAI Whisper
-- 🤖 AI Generated Meeting Summary
-- ✅ Action Item Extraction
-- 💻 Simple and User-Friendly Interface
+- 🎤 Upload meeting audio files (MP3, WAV, M4A)
+- 📝 Convert speech to text using Whisper
+- 🤖 Generate AI meeting summaries
+- ✅ Extract action items automatically
+- 💾 Store meeting details in SQLite database
+- 📜 View previous meetings
+- 🔍 Search previous meetings
+- 🗑 Delete all meeting records
+- 📥 Download meeting summary as a text file
+- 🎨 Simple and user-friendly interface
 
 ---
 
@@ -27,10 +25,12 @@ This helps users quickly understand important meeting discussions without listen
 
 - Python
 - Flask
-- HTML
-- CSS
+- HTML5
+- CSS3
+- SQLite
 - OpenAI Whisper
-- Hugging Face Transformers
+- Git
+- GitHub
 
 ---
 
@@ -38,61 +38,53 @@ This helps users quickly understand important meeting discussions without listen
 
 ```
 AI_Meeting_Assistant/
-
-│── app.py
-│── transcribe.py
-│── summary.py
-│── action_items.py
-│── requirements.txt
-│── README.md
 │
-├── templates/
-│     └── index.html
-│
+├── app.py
+├── database.py
+├── transcribe.py
+├── summary.py
+├── action_items.py
+├── meetings.db
+├── uploads/
+├── downloads/
 ├── static/
-│     └── css/
-│           └── style.css
-│
-└── uploads/
+│   └── css/
+│       └── style.css
+├── templates/
+│   ├── index.html
+│   └── meetings.html
+└── README.md
 ```
 
 ---
 
-## ▶️ How to Run
+## ⚙️ Installation
 
-### Clone Repository
-
-```bash
-git clone <repository-url>
-```
-
-### Create Virtual Environment
+1. Clone the repository
 
 ```bash
-python -m venv venv
+git clone https://github.com/priya939287-bit/AI-Meeting-Assistant.git
 ```
 
-### Activate Virtual Environment
-
-Windows
+2. Move into the project folder
 
 ```bash
-venv\Scripts\activate
+cd AI-Meeting-Assistant
 ```
 
-### Install Dependencies
+3. Install required packages
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run Project
+4. Run the application
 
 ```bash
 python app.py
 ```
 
-Open:
+5. Open your browser
 
 ```
 http://127.0.0.1:5000
@@ -100,24 +92,50 @@ http://127.0.0.1:5000
 
 ---
 
-## 📷 Screenshots
+## 🚀 How to Use
 
-Project screenshots will be added here.
+1. Upload a meeting audio file.
+2. Wait for transcription.
+3. View the generated transcript.
+4. Read the AI-generated summary.
+5. Check extracted action items.
+6. Download the meeting summary.
+7. View or search previous meetings.
+8. Delete all meetings if required.
+
+---
+
+## 📸 Screenshots
+
+You can add screenshots here.
+
+- Home Page
+- Upload Audio
+- Transcript
+- AI Summary
+- Action Items
+- Previous Meetings
 
 ---
 
 ## 🔮 Future Enhancements
 
-- SQLite Database Integration
-- Meeting History
-- Search Meetings
-- Delete Meetings
-- Download Meeting Summary
-- Smarter AI Action Item Extraction
-- Better User Interface
+- Export meeting summary as PDF
+- User Login System
+- Cloud Database Integration
+- Multi-language Support
+- Speaker Identification
+- AI Chatbot for Meeting Queries
 
 ---
 
-## 👩‍💻 Developed By
+## 👩‍💻 Author
 
-Priya Jyoshna 
+**Priya Jyoshna Kancharla** 
+
+---
+
+## ⭐ Thank You
+
+Thank you for visiting this repository.
+If you like this project, please consider giving it a ⭐ on GitHub.
