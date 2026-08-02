@@ -1,7 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
+
+import os
+
 from transcribe import speech_to_text
 from summary import summarize_text
-from action_items import extract_action_items
+from action_items import extract_action_items 
 from database import (
     save_meeting,
     get_all_meetings,
@@ -91,6 +94,17 @@ def upload():
 
     else:
         return "Only audio files (.mp3, .wav, .m4a) are allowed."
+@app.route("/download_summary")
+def download_summary():
+
+    summary = request.args.get("summary")
+
+    filepath = os.path.join("downloads", "meeting_summary.txt")
+
+    with open(filepath, "w", encoding="utf-8") as file:
+        file.write(summary)
+
+    return send_file(filepath, as_attachment=True) 
 
 
 if __name__ == "__main__":

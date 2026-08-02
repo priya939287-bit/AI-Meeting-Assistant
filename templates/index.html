@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -129,6 +130,18 @@
 
             <p>{{ summary }}</p>
 
+            <br>
+
+            <a href="{{ url_for('download_summary', summary=summary) }}">
+
+                <button>
+
+                    📥 Download Summary
+
+                </button>
+
+            </a>
+
         </div>
 
         {% endif %}
@@ -157,4 +170,4 @@
 
 </body>
 
-</html>
+</html> 
