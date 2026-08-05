@@ -95,4 +95,20 @@ def delete_all_meetings():
     connection.close()
 
 
+def delete_meeting(meeting_id):
+
+    connection = sqlite3.connect("meetings.db")
+
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "DELETE FROM meetings WHERE id=?",
+        (meeting_id,)
+    )
+
+    connection.commit()
+
+    connection.close()
+
+
 create_database() 

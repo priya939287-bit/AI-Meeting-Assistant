@@ -4,12 +4,13 @@ import os
 
 from transcribe import speech_to_text
 from summary import summarize_text
-from action_items import extract_action_items 
+from action_items import extract_action_items
 from database import (
     save_meeting,
     get_all_meetings,
     search_meetings,
-    delete_all_meetings
+    delete_all_meetings,
+    delete_meeting
 )
 
 app = Flask(__name__)
@@ -58,6 +59,17 @@ def delete_all():
     return redirect(url_for("meetings"))
 
 
+# -----------------------------
+# Delete Selected Meeting
+# -----------------------------
+@app.route("/delete/<int:meeting_id>")
+def delete(meeting_id):
+
+    delete_meeting(meeting_id)
+
+    return redirect(url_for("meetings"))
+
+
 @app.route("/upload", methods=["POST"])
 def upload():
 
@@ -94,6 +106,8 @@ def upload():
 
     else:
         return "Only audio files (.mp3, .wav, .m4a) are allowed."
+
+
 @app.route("/download_summary")
 def download_summary():
 
@@ -104,8 +118,8 @@ def download_summary():
     with open(filepath, "w", encoding="utf-8") as file:
         file.write(summary)
 
-    return send_file(filepath, as_attachment=True) 
+    return send_file(filepath, as_attachment=True)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True) 

@@ -66,6 +66,17 @@
 
                 <p>{{ meeting[3] }}</p>
 
+                <br>
+
+                <a href="/delete/{{ meeting[0] }}"
+                   onclick="return confirm('Are you sure you want to delete this meeting?');">
+
+                    <button>
+                        🗑 Delete This Meeting
+                    </button>
+
+                </a>
+
             </div>
 
             {% endfor %}
