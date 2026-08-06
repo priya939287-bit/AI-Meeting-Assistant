@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,10 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+          rel="stylesheet">
 
     <link rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}">
+          href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
@@ -30,20 +29,35 @@
             <h1>🎤 AI Meeting Assistant</h1>
 
             <p>
-                Convert your meeting recordings into
-                <strong>Transcript</strong>,
-                <strong>Summary</strong> and
-                <strong>Action Items</strong> using AI.
+                Transform your meeting recordings into
+                <strong>accurate transcripts</strong>,
+                <strong>AI-powered summaries</strong>,
+                and <strong>actionable insights</strong>.
             </p>
+
+            <div class="feature-tags">
+
+                <span>🎙 Speech-to-Text</span>
+
+                <span>📝 AI Summary</span>
+
+                <span>✅ Action Items</span>
+
+                <span>📂 Meeting History</span>
+
+            </div>
 
         </div>
 
+        <!-- Upload Card -->
+
         <div class="upload-card">
 
-            <h2>📂 Upload Meeting Audio</h2>
+            <h2>🎙 Upload Meeting Recording</h2>
 
             <p class="upload-text">
-                Supported formats: MP3, WAV, M4A
+                Upload your meeting audio to automatically generate
+                a transcript, AI-powered summary, and action items.
             </p>
 
             <form action="/upload"
@@ -60,7 +74,9 @@
 
                 </div>
 
-                <br>
+                <p class="supported-formats">
+                    Supported Formats: MP3 • WAV • M4A
+                </p>
 
                 <button type="submit">
                     🚀 Analyze Meeting
@@ -69,6 +85,8 @@
             </form>
 
         </div>
+
+        <!-- Search Card -->
 
         <div class="upload-card">
 
@@ -92,6 +110,8 @@
 
         </div>
 
+        <!-- View Meetings -->
+
         <div class="upload-card">
 
             <h2>📜 View Previous Meetings</h2>
@@ -110,34 +130,44 @@
 
         </div>
 
+        <!-- Transcript -->
+
         {% if transcript %}
 
         <div class="result-card">
 
-            <h2>🎤 Transcript</h2>
+            <h2>🎤 Meeting Transcript</h2>
 
-            <p>{{ transcript }}</p>
+            <div class="result-content">
+
+                <p>{{ transcript }}</p>
+
+            </div>
 
         </div>
 
         {% endif %}
 
+        <!-- Summary -->
+
         {% if summary %}
 
         <div class="result-card">
 
-            <h2>📝 AI Summary</h2>
+            <h2>📝 AI Meeting Summary</h2>
 
-            <p>{{ summary }}</p>
+            <div class="result-content">
+
+                <p>{{ summary }}</p>
+
+            </div>
 
             <br>
 
             <a href="{{ url_for('download_summary', summary=summary) }}">
 
                 <button>
-
                     📥 Download Summary
-
                 </button>
 
             </a>
@@ -146,21 +176,27 @@
 
         {% endif %}
 
+        <!-- Action Items -->
+
         {% if actions %}
 
         <div class="result-card">
 
             <h2>✅ Action Items</h2>
 
-            <ul>
+            <div class="result-content">
 
-                {% for item in actions %}
+                <ul>
 
-                <li>{{ item }}</li>
+                    {% for item in actions %}
 
-                {% endfor %}
+                    <li>{{ item }}</li>
 
-            </ul>
+                    {% endfor %}
+
+                </ul>
+
+            </div>
 
         </div>
 
@@ -170,4 +206,4 @@
 
 </body>
 
-</html> 
+</html>

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Previous Meetings</title>
+    <title>Meeting History</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -24,13 +24,19 @@
 
     <div class="container">
 
+        <!-- Header -->
+
         <div class="header">
 
-            <h1>📜 Previous Meetings</h1>
+            <h1>📜 Meeting History</h1>
 
-            <p>All your previously saved meetings are shown below.</p>
+            <p>
+                Browse, search, and manage all your previously analyzed meetings.
+            </p>
 
         </div>
+
+        <!-- Delete All -->
 
         <div style="text-align:center; margin-bottom:30px;">
 
@@ -39,7 +45,7 @@
                   onsubmit="return confirm('Are you sure you want to delete all meetings?');">
 
                 <button type="submit">
-                    🗑️ Delete All Meetings
+                    🗑 Delete All Meetings
                 </button>
 
             </form>
@@ -52,30 +58,44 @@
 
             <div class="result-card">
 
-                <h2>Meeting {{ meeting[0] }}</h2>
+                <h2>📄 Meeting #{{ meeting[0] }}</h2>
 
-                <p><strong>Transcript:</strong></p>
+                <h3>🎤 Transcript</h3>
 
-                <p>{{ meeting[1] }}</p>
+                <div class="result-content">
 
-                <p><strong>Summary:</strong></p>
+                    <p>{{ meeting[1] }}</p>
 
-                <p>{{ meeting[2] }}</p>
+                </div>
 
-                <p><strong>Action Items:</strong></p>
+                <h3>📝 AI Summary</h3>
 
-                <p>{{ meeting[3] }}</p>
+                <div class="result-content">
 
-                <br>
+                    <p>{{ meeting[2] }}</p>
 
-                <a href="/delete/{{ meeting[0] }}"
-                   onclick="return confirm('Are you sure you want to delete this meeting?');">
+                </div>
 
-                    <button>
-                        🗑 Delete This Meeting
-                    </button>
+                <h3>✅ Action Items</h3>
 
-                </a>
+                <div class="result-content">
+
+                    <p>{{ meeting[3] }}</p>
+
+                </div>
+
+                <div style="text-align:center; margin-top:20px;">
+
+                    <a href="/delete/{{ meeting[0] }}"
+                       onclick="return confirm('Are you sure you want to delete this meeting?');">
+
+                        <button>
+                            🗑 Delete This Meeting
+                        </button>
+
+                    </a>
+
+                </div>
 
             </div>
 
@@ -86,6 +106,8 @@
             <div class="result-card">
 
                 <h2>No Meetings Found</h2>
+
+                <p>No meeting records are available.</p>
 
             </div>
 
